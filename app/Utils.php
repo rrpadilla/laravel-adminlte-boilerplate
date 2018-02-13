@@ -1,0 +1,72 @@
+<?php
+
+namespace App;
+
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
+final class Utils
+{
+    /**
+     * @param array|string $routes
+     * @return bool
+     */
+    public static function checkRoute($routes)
+    {
+        if (is_string($routes)) {
+            return \Route::currentRouteName() == $routes;
+        } elseif (is_array($routes)) {
+            return in_array(\Route::currentRouteName(), $routes);
+        }
+
+        return false;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getLogosNumber()
+    {
+        return [1, 2, 3, 4, 5];
+    }
+
+    /**
+     * @param int $logoNumber
+     * @return string
+     */
+    public static function logoPath($logoNumber = 1)
+    {
+        $logoNumber = static::getValidLogoNumber($logoNumber);
+
+        return "/adminlte/img/avatar_{$logoNumber}.png";
+    }
+
+    /**
+     * @param int $logoNumber
+     * @return string
+     */
+    public static function getValidLogoNumber($logoNumber = 1)
+    {
+        return (in_array($logoNumber, static::getLogosNumber())) ? $logoNumber : 1;
+    }    
+
+    /**
+     * @param null $guard
+     * @return string
+     */
+    public static function getUserRoleLabel($guard = null)
+    {
+        if (! Auth::guard($guard)->guest()) {
+            $user = Auth::guard($guard)->user();
+            if ($user->isAdmin()) {
+                return 'Administrator';
+            } else {
+                return 'Member';
+            }
+        }
+
+        return 'Anonymous';
+    }
+}
