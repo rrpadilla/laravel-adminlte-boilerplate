@@ -212,7 +212,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Flash'     => Laracasts\Flash\Flash::class,
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::class,
         'Carbon' => Carbon\Carbon::class,
 
     ],
