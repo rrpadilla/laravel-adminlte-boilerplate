@@ -2,13 +2,26 @@
 
 namespace App;
 
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Route;
 
 final class Utils
 {
+    /**
+     * Generate a cdn asset path.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    public static function cdnAsset(string $path)
+    {
+        $base = config('app.cdn') ?: config('app.url');
+        $file = ltrim($path, '/');
+
+        return "{$base}/{$file}";
+    }
+
     /**
      * @param array|string $routes
      * @return bool
@@ -16,9 +29,9 @@ final class Utils
     public static function checkRoute($routes)
     {
         if (is_string($routes)) {
-            return \Route::currentRouteName() == $routes;
+            return Route::currentRouteName() == $routes;
         } elseif (is_array($routes)) {
-            return in_array(\Route::currentRouteName(), $routes);
+            return in_array(Route::currentRouteName(), $routes);
         }
 
         return false;
@@ -50,7 +63,7 @@ final class Utils
     public static function getValidLogoNumber($logoNumber = 1)
     {
         return (in_array($logoNumber, static::getLogosNumber())) ? $logoNumber : 1;
-    }    
+    }
 
     /**
      * @param null $guard

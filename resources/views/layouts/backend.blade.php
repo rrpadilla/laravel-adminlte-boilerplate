@@ -20,20 +20,20 @@
 
         <!-- Plugins -->
         <!-- iCheck for checkboxes and radio inputs -->
-        <link href="/adminlte/plugins/iCheck/all.css" rel="stylesheet" type="text/css">
+        <link href="{{ cdn_asset('/adminlte/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css">
         <!-- Select2 -->
-        <link href="/adminlte/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css">
+        <link href="{{ cdn_asset('/adminlte/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
         <!-- datetimepicker -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
         <!-- END - Plugins -->
 
         <!-- Theme CSS -->
-        <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="{{ cdn_asset('/adminlte/css/AdminLTE.min.css') }}">
         <!-- AdminLTE Skin. -->
-        <link rel="stylesheet" href="/adminlte/css/skins/{{ config('adminlte.theme') }}.min.css">
+        <link rel="stylesheet" href="{{ cdn_asset('/adminlte/css/skins/' . config('adminlte.theme') . '.min.css') }}">
 
         <!-- Custom CSS -->
-        <link href="/css/backend.css?version={{ config('adminlte.version') }}" rel="stylesheet">
+        <link href="{{ cdn_asset('/css/backend.css?version=' . config('adminlte.version')) }}" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -105,15 +105,15 @@
         <!-- Bootstrap 3.3.7 -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!-- SlimScroll -->
-        <script src="/adminlte/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="{{ cdn_asset('/adminlte/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
         <!-- FastClick -->
-        <script src="/adminlte/plugins/fastclick/fastclick.js"></script>
+        <script src="{{ cdn_asset('/adminlte/plugins/fastclick/fastclick.js') }}"></script>
 
         <!-- Plugins -->
         <!-- iCheck for checkboxes and radio inputs -->
-        <script src="/adminlte/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+        <script src="{{ cdn_asset('/adminlte/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
         <!-- Select2 -->
-        <script src="/adminlte/plugins/select2/js/select2.min.js" type="text/javascript"></script>
+        <script src="{{ cdn_asset('/adminlte/plugins/select2/js/select2.min.js') }}" type="text/javascript"></script>
         <!-- Moment Js-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
         <!-- DatetimePicker Js-->
@@ -121,9 +121,9 @@
         <!-- END - Plugins -->
 
         <!-- AdminLTE App -->
-        <script src="/adminlte/js/adminlte.min.js"></script>
+        <script src="{{ cdn_asset('/adminlte/js/adminlte.min.js') }}"></script>
         <!-- Custom Js -->
-        <script src="/js/backend.js?version={{ config('adminlte.version') }}"></script>
+        <script src="{{ cdn_asset('/js/backend.js?version=' . config('adminlte.version')) }}"></script>
 
         <script type="text/javascript">
             (function ($) {

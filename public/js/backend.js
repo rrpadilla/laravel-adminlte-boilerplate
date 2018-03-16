@@ -195,21 +195,3 @@ $(function () {
         }
     });
 });
-
-$(function () {
-    $('input[type="text"].total-price-dependency').on('keydown keyup', function(event) {
-        // prevent form submit
-        if (event.keyCode === 10 || event.keyCode === 13) {
-            event.preventDefault();
-        }
-    });
-
-    $('input[type="text"].total-price-dependency').on('keyup', function(event) {
-        // prevent form submit
-        if (event.keyCode === 10 || event.keyCode === 13) {
-            event.preventDefault();
-        }
-
-        formCalculateTotalPrice();
-    });
-});
