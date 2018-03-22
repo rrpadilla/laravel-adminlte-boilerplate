@@ -3,7 +3,7 @@
 
 <?php
 $_pageTitle = (isset($addVarsForView['_pageTitle']) && ! empty($addVarsForView['_pageTitle']) ? $addVarsForView['_pageTitle'] : ucwords($resourceTitle));
-$_pageSubtitle = (isset($addVarsForView['_pageSubtitle']) && ! empty($addVarsForView['_pageSubtitle']) ? $addVarsForView['_pageSubtitle'] : "List of $_pageTitle");
+$_pageSubtitle = (isset($addVarsForView['_pageSubtitle']) && ! empty($addVarsForView['_pageSubtitle']) ? $addVarsForView['_pageSubtitle'] : 'List');
 $_listLink = route($resourceRoutesAlias.'.index');
 $_createLink = route($resourceRoutesAlias.'.create');
 
@@ -37,7 +37,7 @@ if (count($records) > 0) {
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ $_pageTitle }}</h3>
+            <h3 class="box-title">{{ $_pageSubtitle }}</h3>
 
             <!-- Search -->
             <div class="box-tools pull-right">
