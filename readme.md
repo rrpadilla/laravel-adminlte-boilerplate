@@ -29,6 +29,26 @@
 |---------|------|-------------|----------|
 | 5.6+    | 7.1+ | **5.x**     | 2.4+ 
 
+## Production
+
+$ composer install --optimize-autoloader
+$ php artisan config:cache
+$ php artisan route:cache
+$ php artisan view:clear
+$ composer install --optimize-autoloader && php artisan config:cache && php artisan route:cache && php artisan view:clear
+
+## Production (Configuring Trusted Proxies)
+
+- [See] https://laravel.com/docs/5.6/requests#configuring-trusted-proxies
+- Change your .env if:
+-- you're using AWS ELB:
+--- TRUSTEDPROXY_PROXIES='*'
+--- TRUSTEDPROXY_HEADERS='HEADER_X_FORWARDED_AWS_ELB'
+-- IP address (or range) of your proxy
+--- TRUSTEDPROXY_PROXIES='192.168.1.1,192.168.1.2'
+--- TRUSTEDPROXY_PROXIES='192.168.1.0/8'
+--- TRUSTEDPROXY_HEADERS='HEADER_X_FORWARDED_ALL'
+
 ## Interface
 
 ![laravel-adminlte](https://user-images.githubusercontent.com/6921286/36182902-aed39d64-10e0-11e8-9442-4d036fa47d12.gif)
