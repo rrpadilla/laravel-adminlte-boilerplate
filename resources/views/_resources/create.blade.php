@@ -90,5 +90,5 @@ $_storeLink = route($resourceRoutesAlias.'.store');
 
 {{-- Footer Extras to be Included --}}
 @section('footer-extras')
-    @include('_resources._form-footer-extras')
+    
 @endsection

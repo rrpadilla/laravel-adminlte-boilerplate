@@ -9,9 +9,6 @@ $_listLink = route($resourceRoutesAlias.'.index');
 $_createLink = route($resourceRoutesAlias.'.create');
 $_updateLink = route($resourceRoutesAlias.'.update', $record->id);
 $_printLink = false;
-if (in_array($resourceRoutesAlias, ['shipments'])) {
-    $_printLink = route($resourceRoutesAlias.'.print', $record->id);
-}
 ?>
 
 {{-- Breadcrumbs --}}
@@ -100,5 +97,5 @@ if (in_array($resourceRoutesAlias, ['shipments'])) {
 
 {{-- Footer Extras to be Included --}}
 @section('footer-extras')
-    @include('_resources._form-footer-extras')
+
 @endsection
