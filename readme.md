@@ -31,11 +31,12 @@
 
 ## Production
 
-$ composer install --optimize-autoloader
-$ php artisan config:cache
-$ php artisan route:cache
-$ php artisan view:clear
-$ composer install --optimize-autoloader && php artisan config:cache && php artisan route:cache && php artisan view:clear
+- composer install --optimize-autoloader
+- php artisan config:cache
+- php artisan route:cache
+- php artisan view:clear
+- Run all commands.
+    - composer install --optimize-autoloader && php artisan config:cache && php artisan route:cache && php artisan view:clear
 
 ## Production (Configuring Trusted Proxies)
 
