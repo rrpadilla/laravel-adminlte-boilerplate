@@ -20,8 +20,8 @@
 - Testing: Run __phpunit__
 - See [UsersControllerTest](https://github.com/rrpadilla/laravel-adminlte-boilerplate/blob/master/tests/Feature/Controllers/Admin/UsersControllerTest.php)
 - Login with:
-..* Admin: __admin@admin.com__ - __secret__
-..* Member: __member@example.com__ - __secret__
+    - Admin: __admin@admin.com__ - __secret__
+    - Member: __member@example.com__ - __secret__
 
 ## Compatibility Chart
 
@@ -42,12 +42,12 @@ $ composer install --optimize-autoloader && php artisan config:cache && php arti
 [See] https://laravel.com/docs/5.6/requests#configuring-trusted-proxies
 Change your .env if:
 - you're using AWS ELB:
-..* TRUSTEDPROXY_PROXIES='*'
-..* TRUSTEDPROXY_HEADERS='HEADER_X_FORWARDED_AWS_ELB'
+    - TRUSTEDPROXY_PROXIES='*'
+    - TRUSTEDPROXY_HEADERS='HEADER_X_FORWARDED_AWS_ELB'
 - IP address (or range) of your proxy
-..* TRUSTEDPROXY_PROXIES='192.168.1.1,192.168.1.2'
-..* TRUSTEDPROXY_PROXIES='192.168.1.0/8'
-..* TRUSTEDPROXY_HEADERS='HEADER_X_FORWARDED_ALL'
+    - TRUSTEDPROXY_PROXIES='192.168.1.1,192.168.1.2'
+    - TRUSTEDPROXY_PROXIES='192.168.1.0/8'
+    - TRUSTEDPROXY_HEADERS='HEADER_X_FORWARDED_ALL'
 
 ## Interface
 
