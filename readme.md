@@ -38,9 +38,7 @@
 - Run all commands.
     - composer install --optimize-autoloader && php artisan config:cache && php artisan route:cache && php artisan view:clear
 
-## Production (Configuring Trusted Proxies)
-
-[See] https://laravel.com/docs/5.6/requests#configuring-trusted-proxies
+## Production (Configuring Trusted Proxies) [See](https://laravel.com/docs/5.6/requests#configuring-trusted-proxies)
 Change your .env if:
 - you're using AWS ELB:
     - __TRUSTEDPROXY_PROXIES__="*"
