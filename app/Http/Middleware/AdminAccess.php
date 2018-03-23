@@ -25,6 +25,6 @@ class AdminAccess
 
         flash()->error('Access Denied');
 
-        return $request->ajax ? response('Unauthorized.', 401) : redirect('/dashboard');
+        return ($request->ajax() || $request->wantsJson()) ? response('Unauthorized.', 401) : redirect()->back();
     }
 }
