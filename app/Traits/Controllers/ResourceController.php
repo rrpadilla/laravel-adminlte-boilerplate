@@ -31,13 +31,13 @@ trait ResourceController
         $records = $this->getSearchRecords($request, $show, $search);
         $records->appends($paginatorData);
 
-        return view('_resources.index', [
+        return view('_resources.index', $this->filterSearchViewData($request, [
             'records' => $records,
             'search' => $search,
             'resourceAlias' => $this->getResourceAlias(),
             'resourceRoutesAlias' => $this->getResourceRoutesAlias(),
             'resourceTitle' => $this->getResourceTitle(),
-        ]);
+        ]));
     }
 
     /**

@@ -195,6 +195,16 @@ trait ResourceHelper
      */
     private function filterEditViewData($record, $data = [])
     {
-        return $this->filterCreateViewData($data);
+        return $data;
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param array $data
+     * @return array
+     */
+    private function filterSearchViewData(Request $request, $data = [])
+    {
+        return $data;
     }
 }
