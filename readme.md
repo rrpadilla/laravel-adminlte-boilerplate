@@ -42,12 +42,13 @@ $ composer install --optimize-autoloader && php artisan config:cache && php arti
 [See] https://laravel.com/docs/5.6/requests#configuring-trusted-proxies
 Change your .env if:
 - you're using AWS ELB:
-    - TRUSTEDPROXY_PROXIES='*'
-    - TRUSTEDPROXY_HEADERS='HEADER_X_FORWARDED_AWS_ELB'
+    - __TRUSTEDPROXY_PROXIES__="*"
+    - __TRUSTEDPROXY_HEADERS__="__HEADER_X_FORWARDED_AWS_ELB__"
 - IP address (or range) of your proxy
-    - TRUSTEDPROXY_PROXIES='192.168.1.1,192.168.1.2'
-    - TRUSTEDPROXY_PROXIES='192.168.1.0/8'
-    - TRUSTEDPROXY_HEADERS='HEADER_X_FORWARDED_ALL'
+    - __TRUSTEDPROXY_PROXIES__="192.168.1.1,192.168.1.2"
+    - __TRUSTEDPROXY_PROXIES__="192.168.1.0/8"
+    - __TRUSTEDPROXY_HEADERS__="__HEADER_X_FORWARDED_ALL__"
+    - __TRUSTEDPROXY_HEADERS__="__HEADER_FORWARDED__"
 
 ## Interface
 
