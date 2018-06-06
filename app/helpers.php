@@ -19,9 +19,10 @@ if (! function_exists('cdn_asset')) {
 if (! function_exists('trustedproxy_config')) {
     /**
      * Get Trusted Proxy value
+     *
      * @param string $key
      * @param string $env_value
-     * 
+     *
      * @return mixed
      */
     function trustedproxy_config($key, $env_value)
@@ -32,11 +33,10 @@ if (! function_exists('trustedproxy_config')) {
             }
 
             return $env_value ? explode(',', $env_value) : null;
-        } 
-        elseif ($key === 'headers') {
+        } elseif ($key === 'headers') {
             if ($env_value === 'HEADER_X_FORWARDED_AWS_ELB') {
                 return Request::HEADER_X_FORWARDED_AWS_ELB;
-            } elseif($env_value === 'HEADER_FORWARDED') {
+            } elseif ($env_value === 'HEADER_FORWARDED') {
                 return Request::HEADER_FORWARDED;
             }
 
