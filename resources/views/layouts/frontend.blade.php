@@ -81,14 +81,12 @@
             </div>
             <!-- /.content-wrapper -->
 
-            @auth
-                <footer class="main-footer">
-                    <div class="pull-right hidden-xs">
-                        <b>Version</b> {{ config('adminlte.version') }}
-                    </div>
-                    <strong>Copyright &copy; {{ date('Y') }}. {!! config('adminlte.credits') !!}</strong>. All rights reserved.
-                </footer>
-            @endauth
+            <footer class="main-footer">
+                <div class="container text-center">
+                    <strong>Copyright &copy; {{ date('Y') }}. {!! config('adminlte.credits') !!}</strong>
+                </div>
+                <!-- /.container -->
+            </footer>
         </div>
         <!-- ./wrapper -->
 
