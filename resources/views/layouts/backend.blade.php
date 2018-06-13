@@ -16,7 +16,7 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
         <!-- Plugins -->
         <!-- iCheck for checkboxes and radio inputs -->
@@ -101,7 +101,7 @@
         <!-- ./wrapper -->
 
         <!-- jQuery 3 -->
-        <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap 3.3.7 -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!-- SlimScroll -->
@@ -153,7 +153,7 @@
         </script>
 
         @yield('footer-extras')
-        
+
         @stack('footer-scripts')
     </body>
 </html>
