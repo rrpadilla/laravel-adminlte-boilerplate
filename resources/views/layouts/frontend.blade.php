@@ -16,7 +16,7 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">-->
 
         <!-- Plugins -->
         <!-- iCheck for checkboxes and radio inputs -->
@@ -58,14 +58,16 @@
             <!-- Full Width Column -->
             <div class="content-wrapper">
                 <div class="container">
-                    <!-- Content Header (Page header) -->
-                    <section class="content-header">
-                        <h1>
-                            @yield('page-title')
-                            <small>@yield('page-subtitle')</small>
-                        </h1>
-                        @yield('breadcrumbs')
-                    </section>
+                    @section('content-header')
+                        <!-- Content Header (Page header) -->
+                        <section class="content-header">
+                            <h1>
+                                @yield('page-title')
+                                <small>@yield('page-subtitle')</small>
+                            </h1>
+                            @yield('breadcrumbs')
+                        </section>
+                    @show
 
                     <!-- Main content -->
                     <section class="content">

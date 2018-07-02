@@ -54,8 +54,9 @@ if (count($records) > 0) {
                 </form>
             </div>
             <!-- END Search -->
-
         </div>
+
+        @includeIf($resourceAlias.'._search')
 
         <div class="box-body no-padding">
             @if (count($records) > 0)

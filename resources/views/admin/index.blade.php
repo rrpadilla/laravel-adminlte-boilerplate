@@ -18,7 +18,6 @@
 @endsection
 
 @section('content')
-
     <!-- Small boxes (Stat box) -->
     <div class="row">
         <div class="col-lg-3 col-xs-6">
@@ -28,14 +27,13 @@
                     <h3>{{ $reports->getTotalUsers() }}</h3>
                     <p>Users</p>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-ios-people-outline"></i>
+                <div class="icon smaller">
+                    <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
                 <a href="{{ route('admin::users.index') }}" class="small-box-footer">List Users <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
-
 @endsection
 
 {{-- Footer Extras to be Included --}}

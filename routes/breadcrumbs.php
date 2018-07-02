@@ -28,7 +28,7 @@ Breadcrumbs::register('password-request', function ($breadcrumbs) {
 // Home > Login > Forgot Password > Reset Password
 Breadcrumbs::register('password-reset', function ($breadcrumbs) {
     $breadcrumbs->parent('password-request');
-    $breadcrumbs->push('Reset Password', route('password.reset'));
+    $breadcrumbs->push('Reset Password', route('password.request'));
 });
 
 // Dashboard

@@ -221,3 +221,11 @@
 .aa-suggestion:hover, .aa-suggestion.aa-cursor {
     background-color: rgba(241, 241, 241, 0.35);
 }
+
+.small-box .icon.smaller {
+    top: 0px;
+    font-size: 70px;
+}
+.small-box:hover .icon.smaller {
+    font-size: 75px;
+}
