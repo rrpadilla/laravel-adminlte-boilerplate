@@ -56,7 +56,7 @@ if (! function_exists('redirect_back_field')) {
      */
     function redirect_back_field()
     {
-        return new HtmlString('<input type="hidden" name="_redirect_back" value="'.back()->getTargetUrl().'">');
+        return new HtmlString('<input type="hidden" name="_redirect_back" value="'.old('_redirect_back', back()->getTargetUrl()).'">');
     }
 }
 
