@@ -143,7 +143,8 @@ trait ResourceHelper
         return $request->only($this->getResourceModel()::getFillableFields());
     }
 
-    private function alterValuesToSave(Request $request, $values) {
+    private function alterValuesToSave(Request $request, $values)
+    {
         return $values;
     }
 
@@ -161,13 +162,13 @@ trait ResourceHelper
      * Retrieve the list of the resource.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $show
+     * @param int $perPage
      * @param string|null $search
      * @return \Illuminate\Support\Collection
      */
-    private function getSearchRecords(Request $request, $show = 15, $search = null)
+    private function getSearchRecords(Request $request, $perPage = 15, $search = null)
     {
-        return $this->getResourceModel()::paginate($show);
+        return $this->getResourceModel()::paginate($perPage);
     }
 
     /**
@@ -176,7 +177,7 @@ trait ResourceHelper
      */
     private function getRedirectAfterSave($record)
     {
-        return redirect(route($this->getResourceRoutesAlias().'.index'));
+        return $this->redirectBackTo(route($this->getResourceRoutesAlias().'.index'));
     }
 
     /**
@@ -206,5 +207,17 @@ trait ResourceHelper
     private function filterSearchViewData(Request $request, $data = [])
     {
         return $data;
+    }
+
+    /**
+     * @param $callbackUrl
+     * @param int $status
+     * @param array $headers
+     * @param null $secure
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    private function redirectBackTo($callbackUrl, $status = 302, $headers = [], $secure = null)
+    {
+        return redirect_back_to($callbackUrl, $status, $headers, $secure);
     }
 }

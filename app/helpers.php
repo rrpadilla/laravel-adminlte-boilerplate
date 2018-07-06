@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\HtmlString;
 
 if (! function_exists('cdn_asset')) {
     /**
@@ -44,5 +45,40 @@ if (! function_exists('trustedproxy_config')) {
         }
 
         return null;
+    }
+}
+
+if (! function_exists('redirect_back_field')) {
+    /**
+     * Generate a redirect back url form field.
+     *
+     * @return \Illuminate\Support\HtmlString
+     */
+    function redirect_back_field()
+    {
+        return new HtmlString('<input type="hidden" name="_redirect_back" value="'.back()->getTargetUrl().'">');
+    }
+}
+
+if (! function_exists('redirect_back_to')) {
+    /**
+     * Get an instance of the redirector.
+     *
+     * @param  string|null  $callbackUrl
+     * @param  int     $status
+     * @param  array   $headers
+     * @param  bool    $secure
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    function redirect_back_to($callbackUrl = null, $status = 302, $headers = [], $secure = null)
+    {
+        $to = request()->input('_redirect_back', back()->getTargetUrl());
+        if ($callbackUrl) {
+            if (! starts_with($to, $callbackUrl)) {
+                $to = $callbackUrl;
+            }
+        }
+
+        return redirect($to, $status, $headers, $secure);
     }
 }

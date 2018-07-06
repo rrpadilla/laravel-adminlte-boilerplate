@@ -37,6 +37,8 @@ $_storeLink = route($resourceRoutesAlias.'.store');
                 <form class="form" role="form" method="POST" action="{{ $_storeLink }}" {!! $_formFiles === true ? 'enctype="multipart/form-data"' : '' !!}>
                     {{ csrf_field() }}
 
+                    {{ redirect_back_field() }}
+
                     <div class="box-header with-border">
                         <h3 class="box-title">Add new</h3>
 

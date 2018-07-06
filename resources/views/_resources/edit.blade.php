@@ -39,6 +39,8 @@ $_printLink = false;
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
 
+                    {{ redirect_back_field() }}
+
                     <div class="box-header with-border">
                         <h3 class="box-title">Edit {{ $record->getRecordTitle() }}</h3>
 

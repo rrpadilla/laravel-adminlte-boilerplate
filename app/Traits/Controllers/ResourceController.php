@@ -83,7 +83,7 @@ trait ResourceController
             flash()->info('Element was not inserted.');
         }
 
-        return redirect(route($this->getResourceRoutesAlias().'.index'));
+        return $this->redirectBackTo(route($this->getResourceRoutesAlias().'.index'));
     }
 
     /**
@@ -145,7 +145,7 @@ trait ResourceController
             flash()->info('Element was not updated.');
         }
 
-        return redirect(route($this->getResourceRoutesAlias().'.index'));
+        return $this->redirectBackTo(route($this->getResourceRoutesAlias().'.index'));
     }
 
     /**
@@ -171,6 +171,6 @@ trait ResourceController
             flash()->info('Element was not deleted.');
         }
 
-        return redirect(route($this->getResourceRoutesAlias().'.index'));
+        return $this->redirectBackTo(route($this->getResourceRoutesAlias().'.index'));
     }
 }
