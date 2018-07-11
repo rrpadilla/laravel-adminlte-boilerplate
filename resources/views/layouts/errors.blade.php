@@ -1,83 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <meta name="robots" content="noindex, nofollow, noarchive">
 
-    <title>@yield('title')</title>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <title>{{ config('app.name', 'Laravel') }} | Error @hasSection('title') | @yield('title') @endif</title>
 
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 100;
-            height: 100vh;
-            margin: 0;
-        }
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        .full-height {
-            height: 100vh;
-        }
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
+        <!-- AdminLTE Skin. -->
+        <link rel="stylesheet" href="/adminlte/css/skins/{{ config('adminlte.theme') }}.min.css">
 
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-        .position-ref {
-            position: relative;
-        }
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
+        @yield('head-extras')
+    </head>
 
-        .content {
-            text-align: center;
-        }
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition {{ config('adminlte.theme') }} layout-top-nav">
+        <!-- Site wrapper -->
+        <div class="wrapper">
 
-        .title {
-            font-size: 36px;
-            padding: 20px;
-        }
+            @include('layouts.partials.errors.header')
 
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-    </style>
-</head>
-<body>
-<div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ route('dashboard::index') }}">Dashboard</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-            @endauth
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <div class="container">
+
+                    <!-- Main content -->
+                    <section class="content">
+
+                        @include('flash::message')
+
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h2 class="page-header text-center text-danger">Error</h2>
+                                <div class="box box-solid">
+                                    <div class="box-body text-center text-danger">
+                                        @yield('message')
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+                        </div>
+
+                    </section>
+                    <!-- /.content -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- /.content-wrapper -->
+
+            <footer class="main-footer">
+                <div class="container text-center">
+                    <strong>Copyright &copy; {{ date('Y') }}. {!! config('adminlte.credits') !!}</strong>
+                </div>
+                <!-- /.container -->
+            </footer>
         </div>
-    @endif
+        <!-- ./wrapper -->
 
-    <div class="content">
-        <div class="title">
-            @yield('message')
-        </div>
-    </div>
-</div>
-</body>
+        <!-- jQuery 3 -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- END - Plugins -->
+
+        <!-- AdminLTE App -->
+        <script src="/adminlte/js/adminlte.min.js"></script>
+    </body>
 </html>
