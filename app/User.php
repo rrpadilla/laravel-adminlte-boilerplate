@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Utils;
+use App\Traits\Models\Impersonator;
 use App\Traits\Eloquent\OrderableTrait;
 use App\Traits\Eloquent\SearchLikeTrait;
 use App\Traits\Models\FillableFields;
@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, FillableFields, OrderableTrait, SearchLikeTrait;
+    use Notifiable, FillableFields, OrderableTrait, SearchLikeTrait, Impersonator;
 
     /**
      * The attributes that are mass assignable.

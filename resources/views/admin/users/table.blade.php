@@ -7,7 +7,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Admin</th>
-            <th style="width: 100px;">Actions</th>
+            <th style="width: 120px;">Actions</th>
         </thead>
         <tbody>
         @foreach ($records as $record)
@@ -16,9 +16,11 @@
             $editLink = route($resourceRoutesAlias.'.edit', $record->id);
             $deleteLink = route($resourceRoutesAlias.'.destroy', $record->id);
             $formId = 'formDeleteModel_'.$record->id;
+            $formIdImpersonate = 'impersonateForm_'.$record->id;
 
             $canUpdate = Auth::user()->can('update', $record);
             $canDelete = Auth::user()->can('delete', $record);
+            $canImpersonate = Auth::user()->can('impersonate', $record);
             ?>
             <tr>
             <!--<td><input type="checkbox" name="ids[]" value="{{ $record->id }}" class="square-blue"></td>-->
@@ -41,6 +43,16 @@
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
                     <div class="btn-group">
+                        @if ($canImpersonate)
+                            <a href="#" class="btn btn-warning btn-sm"
+                               onclick="event.preventDefault(); document.getElementById('{{$formIdImpersonate}}').submit();"
+                            >
+                                <i class="fa fa-user-secret"></i>
+                            </a>
+                            <form id="{{$formIdImpersonate}}" action="{{ route('impersonate', $record->id) }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        @endif
                         @if ($canUpdate)
                             <a href="{{ $editLink }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                         @endif

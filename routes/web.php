@@ -19,21 +19,30 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
  */
 Route::group(['namespace' => 'Auth'], function () {
     // Authentication Routes...
-    $this->get('login', 'LoginController@showLoginForm')->name('login');
-    $this->post('login', 'LoginController@login');
-    $this->post('logout', 'LoginController@logout')->name('logout');
+    Route::get('login', 'LoginController@showLoginForm')->name('login');
+    Route::post('login', 'LoginController@login');
+    Route::post('logout', 'LoginController@logout')->name('logout');
 
     // Registration Routes...
     if (config('adminlte.registration_open')) {
-        $this->get('register', 'RegisterController@showRegistrationForm')->name('register');
-        $this->post('register', 'RegisterController@register');
+        Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
+        Route::post('register', 'RegisterController@register');
     }
 
     // Password Reset Routes...
-    $this->get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    $this->post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    $this->get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
-    $this->post('password/reset', 'ResetPasswordController@reset');
+    Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+    Route::post('password/reset', 'ResetPasswordController@reset');
+
+    /**
+     * Impersonate User. Requires authentication.
+     */
+    Route::post('impersonate/{id}', 'ImpersonateController@impersonate')->name('impersonate');
+    /**
+     * Stop Impersonate. Requires authentication.
+     */
+    Route::get('impersonate/stop', 'ImpersonateController@stopImpersonate')->name('impersonate.stop');
 });
 
 // Redirect to /dashboard
@@ -43,7 +52,6 @@ Route::get('/home', 'HomeController@index')->name('home');
  * Requires authentication.
  */
 Route::group(['middleware' => 'auth'], function () {
-
     /**
      * Dashboard. Common access.
      * // Matches The "/dashboard/*" URLs
