@@ -7,6 +7,8 @@
 - Backend: User Management, Simple Role, Profile
 - [Laravel Breadcrumbs](https://github.com/davejamesmiller/laravel-breadcrumbs)
 - [Easy flash notifications](https://github.com/laracasts/flash)
+- Impersonating users:
+    - Allowing admins to sign in as other users
 - Tests
 
 ## How to use
