@@ -9,6 +9,7 @@
 - [Easy flash notifications](https://github.com/laracasts/flash)
 - Impersonating users:
     - Allowing admins to sign in as other users
+    - To enable this feature you have to add **IMPERSONATE=true** to the .env file and update the [App/Http/Kernel class](https://github.com/rrpadilla/laravel-adminlte-boilerplate/blob/master/app/Http/Kernel.php#L40).
 - Tests
 
 ## How to use

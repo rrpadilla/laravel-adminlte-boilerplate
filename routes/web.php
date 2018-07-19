@@ -35,14 +35,16 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'ResetPasswordController@reset');
 
-    /**
-     * Impersonate User. Requires authentication.
-     */
-    Route::post('impersonate/{id}', 'ImpersonateController@impersonate')->name('impersonate');
-    /**
-     * Stop Impersonate. Requires authentication.
-     */
-    Route::get('impersonate/stop', 'ImpersonateController@stopImpersonate')->name('impersonate.stop');
+    if (config('adminlte.impersonate')) {
+        /**
+         * Impersonate User. Requires authentication.
+         */
+        Route::post('impersonate/{id}', 'ImpersonateController@impersonate')->name('impersonate');
+        /**
+         * Stop Impersonate. Requires authentication.
+         */
+        Route::get('impersonate/stop', 'ImpersonateController@stopImpersonate')->name('impersonate.stop');
+    }
 });
 
 // Redirect to /dashboard
