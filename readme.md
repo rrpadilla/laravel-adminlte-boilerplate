@@ -24,6 +24,7 @@
 - Login with:
     - Admin: __admin@admin.com__ - __secret__
     - Member: __member@example.com__ - __secret__
+- Follow the [DOCUMENTATION](https://github.com/rrpadilla/laravel-adminlte-boilerplate/wiki/Adding-Resources) to see how you can add more Resources (CRUD) to your project.
 
 ## Compatibility Chart
 
