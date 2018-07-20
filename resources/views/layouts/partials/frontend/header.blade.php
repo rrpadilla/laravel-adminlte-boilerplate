@@ -28,7 +28,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @endif
                     @else
-                        @if (Auth::user()->can('stopImpersonate', \App\User::class))
+                        @if (Route::has('impersonate.stop') && Auth::user()->can('stopImpersonate', \App\User::class))
                         <li>
                             <a href="{{ route('impersonate.stop') }}" class="bg-red">
                                 <i class="fa fa-user-secret"></i><!-- Stop Impersonating -->

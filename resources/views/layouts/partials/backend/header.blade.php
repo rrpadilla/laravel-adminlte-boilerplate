@@ -20,7 +20,7 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
-                @if (Auth::user()->can('stopImpersonate', \App\User::class))
+                @if (Route::has('impersonate.stop') && Auth::user()->can('stopImpersonate', \App\User::class))
                 <li class="dropdown impersonate-menu">
                     <a href="{{ route('impersonate.stop') }}" class="bg-red">
                         <i class="fa fa-user-secret"></i> <!-- Stop Impersonating -->
