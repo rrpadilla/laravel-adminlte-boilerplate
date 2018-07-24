@@ -24,9 +24,20 @@ class UserPolicy
     }
 
     /**
+     * Determine whether the user can manage events.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
+    public function manage(User $user)
+    {
+        return $user->isAdmin();
+    }
+
+    /**
      * Determine whether the user can list models.
      *
-     * @param  User $user
+     * @param  \App\User  $user
      * @return mixed
      */
     public function viewList(User $user)
@@ -90,10 +101,14 @@ class UserPolicy
      */
     public function impersonate(User $user, User $model)
     {
-        // Should be an admin.
-        // Cannot impersonate again if already impersonating a user.
-        // Cannot impersonate yourself.
-        return $user->isAdmin() && ! $user->isImpersonating() && $user->id !== $model->id;
+        if (config('adminlte.impersonate')) {
+            // Should be an admin.
+            // Cannot impersonate again if already impersonating a user.
+            // Cannot impersonate yourself.
+            return $user->isAdmin() && ! $user->isImpersonating() && $user->id !== $model->id;
+        }
+
+        return false;
     }
 
     /**
@@ -104,7 +119,11 @@ class UserPolicy
      */
     public function stopImpersonate(User $user)
     {
-        // Already impersonating a user?
-        return $user->isImpersonating();
+        if (config('adminlte.impersonate')) {
+            // Already impersonating a user?
+            return $user->isImpersonating();
+        }
+
+        return false;
     }
 }
