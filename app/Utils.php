@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use DateTimeZone;
 
 final class Utils
 {
@@ -81,5 +82,17 @@ final class Utils
         }
 
         return 'Anonymous';
+    }
+
+    /**
+     * Returns a numerically indexed array with all timezone identifiers
+     * @param int $what
+     * @param string $country
+     * @return array
+     * @link http://php.net/manual/en/datetimezone.listidentifiers.php
+     */
+    public static function getDateTimezoneIdentifiersList($what = DateTimeZone::ALL, $country = null)
+    {
+        return DateTimeZone::listIdentifiers($what, $country);
     }
 }
