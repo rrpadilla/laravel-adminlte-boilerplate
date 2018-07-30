@@ -139,7 +139,10 @@ class UsersController extends Controller
     private function getSearchRecords(Request $request, $perPage = 15, $search = null)
     {
         return $this->getResourceModel()::when(! empty($search), function ($query) use ($search) {
-            $query->like('name', $search)->like('email', $search, true);
+            $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%")
+                    ->orWhere('email', 'like', "%$search%");
+            });
         })->paginate($perPage);
     }
 }
