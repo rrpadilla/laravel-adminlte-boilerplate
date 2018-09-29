@@ -2,7 +2,7 @@
     <!-- Pagination -->
     <div class="pull-right">
         <div class="no-margin text-center">
-            {!! $records->render() !!}
+            {!! $records->appends(request()->query())->render() !!}
         </div>
     </div>
     <!-- / End Pagination -->
