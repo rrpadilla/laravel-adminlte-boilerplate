@@ -18,6 +18,7 @@
 - cd my-new-project
 - Copy __.env.example__ file to __.env__ and edit database credentials and APP_URL
 - Run __composer install__
+- Run __composer dump-autoload__
 - Run __php artisan key:generate__
 - Run __php artisan migrate --seed__
 - Testing: Run __phpunit__
