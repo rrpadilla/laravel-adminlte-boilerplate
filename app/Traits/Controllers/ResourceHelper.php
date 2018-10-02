@@ -210,6 +210,33 @@ trait ResourceHelper
     }
 
     /**
+     * @param string $view
+     * @return string
+     */
+    private function filterIndexView($view)
+    {
+        return $view;
+    }
+
+    /**
+     * @param string $view
+     * @return string
+     */
+    private function filterCreateView($view)
+    {
+        return $view;
+    }
+
+    /**
+     * @param string $view
+     * @return string
+     */
+    private function filterEditView($view)
+    {
+        return $view;
+    }
+
+    /**
      * @param $callbackUrl
      * @param int $status
      * @param array $headers

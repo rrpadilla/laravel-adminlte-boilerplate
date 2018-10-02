@@ -31,7 +31,7 @@ trait ResourceController
         $records = $this->getSearchRecords($request, $perPage, $search);
         $records->appends($paginatorData);
 
-        return view('_resources.index', $this->filterSearchViewData($request, [
+        return view($this->filterIndexView('_resources.index'), $this->filterSearchViewData($request, [
             'records' => $records,
             'search' => $search,
             'resourceAlias' => $this->getResourceAlias(),
@@ -51,7 +51,7 @@ trait ResourceController
         $this->authorize('create', $this->getResourceModel());
 
         $class = $this->getResourceModel();
-        return view('_resources.create', $this->filterCreateViewData([
+        return view($this->filterCreateView('_resources.create'), $this->filterCreateViewData([
             'record' => new $class(),
             'resourceAlias' => $this->getResourceAlias(),
             'resourceRoutesAlias' => $this->getResourceRoutesAlias(),
@@ -110,7 +110,7 @@ trait ResourceController
 
         $this->authorize('update', $record);
 
-        return view('_resources.edit', $this->filterEditViewData($record, [
+        return view($this->filterEditView('_resources.edit'), $this->filterEditViewData($record, [
             'record' => $record,
             'resourceAlias' => $this->getResourceAlias(),
             'resourceRoutesAlias' => $this->getResourceRoutesAlias(),
