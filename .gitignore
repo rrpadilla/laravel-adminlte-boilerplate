@@ -13,3 +13,4 @@ yarn-error.log
 .env
 .env.production
 .DS_Store
+_ide_helper.php
