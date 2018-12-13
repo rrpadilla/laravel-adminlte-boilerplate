@@ -18,7 +18,7 @@ class AdminAccess
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            if (Auth::user()->isAdmin()) {
+            if (Auth::guard($guard)->user()->isAdmin()) {
                 return $next($request);
             }
         }
